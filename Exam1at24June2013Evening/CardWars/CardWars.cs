@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Numerics;
 
 class CardWars
 {
     static void Main()
     {
-        long firstPlayerMatchScore = 0;
-        long secondPlayerMatchScore = 0;
+        BigInteger firstPlayerMatchScore = 0;
+        BigInteger secondPlayerMatchScore = 0;
         long firstPlayerGamesWon = 0;
         long secondPlayerGamesWon = 0;
         bool firstPlayerWinsX = false;
