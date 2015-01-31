@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. _2_4_8", "2-4-8\1. _2_4_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. NightmareOnCodeStreet", "NightmareOnCodeStreet\2. NightmareOnCodeStreet.csproj", "{A5E7CFBB-8B64-4E7F-89DE-2BED62398524}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. GameOfPage", "GameOfPage\5. GameOfPage.csproj", "{77CC2869-AC31-4DD9-977E-79931F1A5026}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A5E7CFBB-8B64-4E7F-89DE-2BED62398524}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5E7CFBB-8B64-4E7F-89DE-2BED62398524}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5E7CFBB-8B64-4E7F-89DE-2BED62398524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77CC2869-AC31-4DD9-977E-79931F1A5026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77CC2869-AC31-4DD9-977E-79931F1A5026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77CC2869-AC31-4DD9-977E-79931F1A5026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77CC2869-AC31-4DD9-977E-79931F1A5026}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
