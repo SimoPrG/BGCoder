@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. NightmareOnCodeStreet", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. GameOfPage", "GameOfPage\5. GameOfPage.csproj", "{77CC2869-AC31-4DD9-977E-79931F1A5026}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. KaspichaniaBoats", "KaspichaniaBoats\4. KaspichaniaBoats.csproj", "{FB6E1794-F2F3-4EAD-A5BB-5322C8BE02AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{77CC2869-AC31-4DD9-977E-79931F1A5026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77CC2869-AC31-4DD9-977E-79931F1A5026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77CC2869-AC31-4DD9-977E-79931F1A5026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB6E1794-F2F3-4EAD-A5BB-5322C8BE02AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6E1794-F2F3-4EAD-A5BB-5322C8BE02AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6E1794-F2F3-4EAD-A5BB-5322C8BE02AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6E1794-F2F3-4EAD-A5BB-5322C8BE02AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
