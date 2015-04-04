@@ -44,6 +44,7 @@
     <Compile Include="Armor.cs" />
     <Compile Include="ChildInteractionManager.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="Forest.cs" />
     <Compile Include="IGatheringLocation.cs" />
     <Compile Include="InteractionManager.cs" />
     <Compile Include="Iron.cs" />
@@ -53,6 +54,8 @@
     <Compile Include="ITraveller.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="LocationType.cs" />
+    <Compile Include="Merchant.cs" />
+    <Compile Include="Mine.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +69,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="TradeAndTravelDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="input.txt" />
+    <Content Include="output.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

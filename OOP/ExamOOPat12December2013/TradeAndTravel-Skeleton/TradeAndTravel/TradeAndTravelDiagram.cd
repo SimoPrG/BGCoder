@@ -68,7 +68,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TradeAndTravel.Engine">
-    <Position X="9.25" Y="12.25" Width="1.5" />
+    <Position X="8.75" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAABAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Engine.cs</FileName>
