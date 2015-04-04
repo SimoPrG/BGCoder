@@ -42,9 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Armor.cs" />
+    <Compile Include="ChildInteractionManager.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="IGatheringLocation.cs" />
     <Compile Include="InteractionManager.cs" />
+    <Compile Include="Iron.cs" />
     <Compile Include="IShopkeeper.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemType.cs" />
@@ -57,6 +59,8 @@
     <Compile Include="Shopkeeper.cs" />
     <Compile Include="Town.cs" />
     <Compile Include="Traveller.cs" />
+    <Compile Include="Weapon.cs" />
+    <Compile Include="Wood.cs" />
     <Compile Include="WorldObject.cs" />
   </ItemGroup>
   <ItemGroup>
