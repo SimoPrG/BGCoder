@@ -1,73 +1,135 @@
 /* globals module */
 function solve() {
-
-  function clear(node) {
-    while (node.firstChild) {
-      node.removeChild(node.firstChild);
+    function clear(node) {
+        while (node.firstChild) {
+            node.removeChild(node.firstChild);
+        }
     }
-  }
 
-  return function (selector, items) {
-    var root = document.querySelector(selector);
-    var left = document.createElement('div');
-    left.className = 'image-preview';
-    var title = document.createElement('strong');
-    title.innerHTML = items[0].title;
-    var img = document.createElement('img');
-    img.src = items[0].url;
-    left.appendChild(title);
-    left.appendChild(img);
+    return function (selector, items) {
+        // on the left
+        var imageViewer = document.createElement('div');
+        imageViewer.className = 'image-preview';
+        imageViewer.style.cssText = 'display: inline-block; vertical-align: top; width: 60%; text-align: center;';
 
-    var right = document.createElement('div');
+        var bigImageTitle = document.createElement('h3');
+        bigImageTitle.innerHTML = items[0].title;
 
-    items.forEach(function (item) {
-      var imgContainer = document.createElement('div');
-      imgContainer.className = 'image-container';
+        imageViewer.appendChild(bigImageTitle);
 
-      var title = document.createElement('strong');
-      title.innerHTML = item.title;
-      var img = document.createElement('img');
-      img.width = '150';
-      img.src = item.url;
+        var bigImage = document.createElement('img');
+        bigImage.style.cssText = 'width: 90%';
+        bigImage.src = items[0].url;
 
-      imgContainer.appendChild(title);
-      imgContainer.appendChild(img);
+        imageViewer.appendChild(bigImage);
 
-      right.appendChild(imgContainer);
-    });
+        // on the right
+        var imagePreviewer = document.createElement('div');
+        imagePreviewer.style.cssText = 'display: inline-block; vertical-align: top; width: 40%; height: 600px; overflow: auto; text-align: center;';
 
-    right.addEventListener('click', function (ev) {
-      var target = ev.target;
-      if (!(target instanceof HTMLImageElement)) {
-        return;
-      }
-      img.src = target.src;
-      title.innerHTML = target.previousElementSibling.innerHTML;
-    });
+        var input = document.createElement('input');
+        input.id = 'image-preview-input-' + Math.random();
+        input.addEventListener('input', function () {
+            var imageContainers = ul.children;
+            for (var i = 0, len = imageContainers.length; i < len; i += 1) {
+                if (imageContainers[i].firstElementChild.innerHTML.toLowerCase().indexOf(input.value.toLowerCase()) >= 0) {
+                    imageContainers[i].style.display = '';
+                } else {
+                    imageContainers[i].style.display = 'none';
+                }
+            }
+        }, false);
 
-    right.addEventListener('mouseover', function (ev) {
-      var target = ev.target;
-      console.log(target.className);
-      if (target.className.indexOf('image-container') < 0) {
-        return;
-      }
-      target.style.background = 'black';
-    });
+        var label = document.createElement('label');
+        label.setAttribute('for', input.id);
+        label.style.display = 'block';
+        label.innerHTML = 'Filter';
 
-    right.addEventListener('mouseout', function (ev) {
-      var target = ev.target;
+        imagePreviewer.appendChild(label);
+        imagePreviewer.appendChild(input);
 
-      if (target.className.indexOf('image-container') < 0) {
-        return;
-      }
+        var ul = document.createElement('ul');
+        ul.style.cssText = 'list-style-type: none; margin: 0; padding: 0;';
 
-      target.style.background = '';
-    });
+        ul.addEventListener('mouseover', function (ev) {
+            changeBackgroundColor(ev, 'grey');
+        }, false);
 
-    clear(root);
-    root.appendChild(left);
-    root.appendChild(right);
-  };
+        ul.addEventListener('mouseout', function (ev) {
+            changeBackgroundColor(ev, '');
+        }, false);
+
+        ul.addEventListener('click', function (ev) {
+            var imageContainer = ev.target;
+
+            while (imageContainer.className.indexOf('image-container') < 0) {
+                if (imageContainer.tagName === 'UL') {
+                    return;
+                }
+
+                imageContainer = imageContainer.parentNode;
+            }
+
+            if (imageContainer) {
+                var index = imageContainer.getAttribute('data-id');
+                bigImageTitle.innerHTML = items[index].title;
+                bigImage.src = items[index].url;
+            }
+        }, false);
+
+        var li = document.createElement('li');
+        li.className = 'image-container';
+        li.style.cursor = 'pointer';
+
+        var smallImageTitle = document.createElement('h4');
+        var smallImage = document.createElement('img');
+        smallImage.style.width = '95%';
+
+        for (var i = 0, len = items.length; i < len; i += 1) {
+            var currentSmallImageTitle = smallImageTitle.cloneNode(true);
+            currentSmallImageTitle.innerHTML = items[i].title;
+
+            var currentSmallImage = smallImage.cloneNode(true);
+            currentSmallImage.src = items[i].url;
+
+            var currentLi = li.cloneNode(true);
+            currentLi.setAttribute('data-id', i);
+
+            currentLi.appendChild(currentSmallImageTitle);
+            currentLi.appendChild(currentSmallImage);
+
+            ul.appendChild(currentLi);
+        }
+
+        imagePreviewer.appendChild(ul);
+
+        var documentFragment = document.createDocumentFragment();
+
+        documentFragment.appendChild(imageViewer);
+        documentFragment.appendChild(imagePreviewer);
+
+        var container = document.querySelector(selector);
+
+        clear(container);
+
+        container.appendChild(documentFragment);
+
+        function changeBackgroundColor(ev, color) {
+            var imageContainer = ev.target;
+
+            while (imageContainer.className.indexOf('image-container') < 0) {
+                if (imageContainer.tagName === 'UL') {
+                    return;
+                }
+
+                imageContainer = imageContainer.parentNode;
+            }
+
+            if (imageContainer) {
+                imageContainer.style.backgroundColor = color;
+            }
+        }
+    };
 }
 
 module.exports = solve;
